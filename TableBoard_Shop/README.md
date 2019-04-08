@@ -33,17 +33,33 @@ Note:
     - ex) name -> char or varchar
     
 ## index.php 수정
-[여기에 index.php 를 어떻게 수정했는지, 설명을 작성하세요.]
+sql문을 이용하여 제가 생성한 kuh_db라는 데이터베이스에 connect시키고 그 안에 있는 tableboard_shop이라는
+테이블에 값을 num값을 기준으로하여 내림차순으로 값을 가져오도록 쿼리문을 실행시켰습니다.
+
+쿼리문으로 가져온 값들을 mysql_fetch_array함수를 사용해 항 행씩 값을 받아오도록 하여 테이블 안에 저장된 값들을
+화면에 출력하였습니다.
+
+(여기서 페이지 출력을 볼때 iphon 64 gray위로부터 데이터베이스에 해당되는 내용입니다.!!)
 
 ## board_form.php 수정
-[여기에 board_form.php 를 어떻게 수정했는지, 설명을 작성하세요.]
+index.php와 같이 데이터베이스에 connect시켰습니다. index.php로 부터 받아온 num값을 통해 num값에 해당하는
+행의 값들을 불러와 출력하도록 하였습니다. 받아온 num값을 통해 mysql_fetch_array로 값들을 받아 클릭된 정보에 
+해당하는 값들을 유지하여 출력하는 수정창을 열도록 하였습니다.
 
 ## function
 ### insert.php 수정
-[여기에 insert.php 를 어떻게 수정했는지, 설명을 작성하세요.]
+위에서 사용하는 데이터베이스와 connect를 시킵니다. 그 후
+$sql = "insert into tableboard_shop (num, date, name, order_id, price, quantity)";
+
+$sql .= "values ('$_POST[num]', '$_POST[date]', '$_POST[name]', '$_POST[order_id]', '$_POST[price]', '$_POST[quantity]')";
+과 같은 쿼리문장을 사용하여 실행시키면 해당하는 속성들에 입력받은 값들을 데이터베이스에 저장할 수 있습니다.
 
 ### update.php 수정
-[여기에 update.php 를 어떻게 수정했는지, 설명을 작성하세요.]
+위에서 사용하는 데이터베이스와 connet시킵니다.    
+그 후 update tableboard_shop set date라는 쿼리문을 사용하여 해당하는 속성들에 입력받은 
+값들을 넣어서 수정할 수 있도록 변경하였습니다.
 
 ### delete.php 수정
-[여기에 delete.php 를 어떻게 수정했는지, 설명을 작성하세요.]
+위에서 사용하는 데이터베이스와 connet시킵니다.  
+그 후 delete from tableboard_shop where num =  $num라는 쿼리문을 사용하여 받아온 num값에 해당하는 테이블
+레코드를 삭제시키도록 변경하였습니다.

@@ -12,7 +12,6 @@ if($connect->connect_errno){
 if(isset($_GET[num])) {
     #TODO: MySQL 테이블에서, num에 해당하는 레코드 가져오기
     $sql = "select * from tableboard_shop where num = $_GET[num];";
-    echo $sql;
     $result = mysql_query($sql);
     $row =mysql_fetch_array($result);
 }

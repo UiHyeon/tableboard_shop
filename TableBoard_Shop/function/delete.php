@@ -20,7 +20,6 @@ else {
 }
 $num = $_GET[num];
 $sql = "delete from tableboard_shop where num =  $num;";
-echo $sql;
 $result = mysql_query($sql,$connect);
 
 # 참고 : 에러 메시지 출력 방법
@@ -33,5 +32,5 @@ else
 ?>
 
 <script>
-   // location.replace('../index.php');                     //웹에 히스토리가 남지 않는다. -> location.replace()의 경우.
+    location.replace('../index.php');                     //웹에 히스토리가 남지 않는다. -> location.replace()의 경우.
 </script>
